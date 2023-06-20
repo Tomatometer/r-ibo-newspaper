@@ -1,3 +1,6 @@
+# IDE
+.vscode
+
 _site
 .sass-cache
 node_modules
