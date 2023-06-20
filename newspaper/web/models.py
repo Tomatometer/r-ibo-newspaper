@@ -6,5 +6,5 @@ class Article(models.Model):
     title = models.TextField()
     author = models.TextField()
     date_published = models.DateTimeField()
-    #image = models.ImageField(null=True)
+    image = models.ImageField(null=True)
     textual_content = models.TextField()
