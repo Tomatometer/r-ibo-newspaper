@@ -2,7 +2,7 @@
 layout: post
 title: "Tam is very stupid"
 subtitle: "How he thinks you can't write new articles"
-date: 2023-06-21 12:45:13 -0400
+date: 2023-06-21 00:45:13 -0400
 background: 'https://media.tenor.com/3jjuRZr-vOQAAAAC/yass-spongbob.gif'
 ---
 
