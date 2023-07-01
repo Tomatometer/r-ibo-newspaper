@@ -2,6 +2,9 @@
 .vscode
 .idea
 
+# Database
+newspaper/db.sqlite3
+
 # Logs
 logs
 *.log
