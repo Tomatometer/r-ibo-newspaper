@@ -1,5 +1,10 @@
 from django.db import models
 
+
+class U(models.Model):
+    user = models.ForeignKey(User, on_delete = models.DO_NOTHING)
+    is_subscribed = models.BooleanField()
+    
 # Create your models here.
 class Article(models.Model):
     article_id = models.UUIDField()
