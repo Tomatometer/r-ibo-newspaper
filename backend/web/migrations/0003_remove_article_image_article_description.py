@@ -4,19 +4,18 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('web', '0002_article_image'),
+        ("web", "0002_article_image"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='article',
-            name='image',
+            model_name="article",
+            name="image",
         ),
         migrations.AddField(
-            model_name='article',
-            name='description',
+            model_name="article",
+            name="description",
             field=models.TextField(null=True),
         ),
     ]
