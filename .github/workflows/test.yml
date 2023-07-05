@@ -1,5 +1,5 @@
 
-name: Pyright
+name: Django test
 
 on:
   push:
