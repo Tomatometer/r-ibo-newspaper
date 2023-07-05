@@ -1,0 +1,31 @@
+
+name: Pyright
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check-types:
+    name: Lint and Fix
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: 3.11
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: set python
+        id: python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: install deps
+        run: pip install -r backend/requirements.txt
+
+      - name: run pyright
+        uses: jakebailey/pyright-action@v1
+        with:
+            level: warning
+            working-directory: backend
