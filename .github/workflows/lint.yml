@@ -1,0 +1,42 @@
+
+name: Black and precommit
+
+on: [push]
+
+
+jobs:
+  lint-and-fix-black:
+    name: Lint and Fix
+    runs-on: ubuntu-latest
+    env:
+      PYTHON_VERSION: 3.11
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: set python
+        id: python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: install dev
+        run: pip install -r backend/requirements.txt
+
+      - name: install linter
+        run: pip install black
+
+      - name: lint-action
+        uses: wearerequired/lint-action@v1.10.0
+        with:
+          black: true
+          auto_fix: true
+
+      - name: isort
+        run: isort .
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Isort auto commit
+          add_options: '-u'
+          commit_options: --no-verify
