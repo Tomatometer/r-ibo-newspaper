@@ -3,6 +3,8 @@ name: Black and precommit
 
 on: [push]
 
+permissions:
+  contents: write
 
 jobs:
   lint-and-fix-black:
