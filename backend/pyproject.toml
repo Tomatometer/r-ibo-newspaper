@@ -1,7 +1,7 @@
 [tool.pyright]
 # TODO - change newspaper to src
 include = ["newspaper", "web"]
-exclude = ["web/migrations", ".venv"]
+exclude = ["web/migrations", ".venv", "newspaper/settings.py", "web/models.py"]
 
 pythonVersion = "3.11"
 venv = ".venv"

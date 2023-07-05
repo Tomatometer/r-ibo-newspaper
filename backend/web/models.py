@@ -5,7 +5,7 @@ class User(models.Model):
     email = models.EmailField(primary_key=True)
     is_subscribed = models.BigIntegerField(default=0)
 
-    def is_subscribed_to_channel(self, channel):
+    def is_subscribed_to_channel(self, channel: int):
         return self.is_subscribed & channel != 0
 
 
