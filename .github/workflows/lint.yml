@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
-      - name: install dev
+      - name: install deps
         run: pip install -r backend/requirements.txt
 
       - name: install linter
