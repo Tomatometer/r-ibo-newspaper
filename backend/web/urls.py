@@ -1,5 +1,5 @@
+from django.urls import include, path
 from web.views import *
-from django.urls import path, include
 
 app_name = "web"
 urlpatterns = [
