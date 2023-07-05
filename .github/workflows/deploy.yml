@@ -2,6 +2,7 @@ name: Build Jekyll site
 on:
  push:
    branches: ["main"]
+   paths: ["frontend"]
 permissions:
   contents: read
   pages: write

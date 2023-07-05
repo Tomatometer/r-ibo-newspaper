@@ -3,7 +3,9 @@ name: Black and isort
 
 on:
   push:
+    paths: ["backend"]
   pull_request:
+    paths: ["backend"]
 
 permissions:
   checks: write

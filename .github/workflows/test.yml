@@ -3,7 +3,9 @@ name: Django test
 
 on:
   push:
+    paths: ["backend"]
   pull_request:
+    paths: ["backend"]
 
 jobs:
   check-types:
