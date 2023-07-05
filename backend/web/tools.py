@@ -6,7 +6,7 @@ CLIENT_SECRET = "cR0nAA1TACk-RbpmnAm1aquMzAADQEID"
 REDIRECT_URI = "https://localhost:8000"
 
 
-def exchange_code(code):
+def exchange_code(code: str):
     data = {
         "client_id": CLIENT_ID,
         "client_secret": CLIENT_SECRET,
