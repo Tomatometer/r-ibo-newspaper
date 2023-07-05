@@ -33,6 +33,7 @@ jobs:
         with:
           black: true
           auto_fix: true
+          github_token:  ${{ secrets.GITHUB_TOKEN }}
 
       - name: isort
         run: isort .
