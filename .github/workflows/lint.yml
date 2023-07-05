@@ -1,7 +1,9 @@
 
-name: Black and precommit
+name: Black and isort
 
-on: [push]
+on:
+  push:
+  pull_request:
 
 permissions:
   contents: write
