@@ -1,9 +1,11 @@
 import requests
 
-API_ENDPOINT = "https://discord.com/api/v10"
-CLIENT_ID = "1125149818793230447"
-CLIENT_SECRET = "cR0nAA1TACk-RbpmnAm1aquMzAADQEID"
-REDIRECT_URI = "https://localhost:8000"
+
+f = dict(open("config.env", "rt").read())
+API_ENDPOINT = 'https://discord.com/api/v10'
+CLIENT_ID = '1125149818793230447'
+CLIENT_SECRET = f["secret_key"]
+REDIRECT_URI = 'https://localhost:8000'
 
 
 def exchange_code(code: str):
