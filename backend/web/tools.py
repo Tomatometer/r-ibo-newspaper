@@ -1,12 +1,12 @@
 import requests
-from dotenv import *
+from dotenv import dotenv_values
 
-ft = dotenv_values(".env")
+config = dotenv_values(".env")
 
 API_ENDPOINT = 'https://discord.com/api/v10'
-CLIENT_ID = ft["client_id"]
-CLIENT_SECRET = ft["secret_key"]
-REDIRECT_URI = ft["redirect_url"]
+CLIENT_ID = config["client_id"]
+CLIENT_SECRET = config["secret_key"]
+REDIRECT_URI = config["redirect_url"]
 
 
 def exchange_code(code: str):
