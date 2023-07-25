@@ -1,8 +1,9 @@
+import json
+
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
 from pydantic import Json
 from web.models import *
-import json
 
 
 # Create your views here.

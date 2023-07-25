@@ -1,5 +1,5 @@
-from django.urls import path
 import web.views as wv
+from django.urls import path
 
 app_name = "web"
 urlpatterns = [
