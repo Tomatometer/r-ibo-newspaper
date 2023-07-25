@@ -5,15 +5,19 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('web', '0005_user_first_name_user_last_name_user_password'),
+        ("web", "0005_user_first_name_user_last_name_user_password"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='author',
-            name='online_user',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='authorUser', to='web.user'),
+            model_name="author",
+            name="online_user",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.DO_NOTHING,
+                related_name="authorUser",
+                to="web.user",
+            ),
         ),
     ]

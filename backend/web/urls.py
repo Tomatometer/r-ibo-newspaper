@@ -7,6 +7,5 @@ urlpatterns = [
     path("search/<str:searchKey>", wv.search_result, name="search"),
     path("author/<str:AuthorName>", wv.author_page, name="article"),
     path("comment/<str:articleID>", wv.comments, name="comment"),
-    path("like/<str:articleID>", wv.like, name="like")
-    
+    path("like/<str:articleID>", wv.like, name="like"),
 ]

@@ -3,7 +3,7 @@ from dotenv import dotenv_values
 
 config = dotenv_values(".env")
 
-API_ENDPOINT = 'https://discord.com/api/v10'
+API_ENDPOINT = "https://discord.com/api/v10"
 CLIENT_ID = config["client_id"]
 CLIENT_SECRET = config["secret_key"]
 REDIRECT_URI = config["redirect_url"]

@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('web', '0010_articlecomment_date_commented'),
+        ("web", "0010_articlecomment_date_commented"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='articlecomment',
-            name='comment_content',
+            model_name="articlecomment",
+            name="comment_content",
             field=models.TextField(null=True),
         ),
     ]

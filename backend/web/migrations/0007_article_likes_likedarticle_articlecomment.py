@@ -5,31 +5,74 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('web', '0006_author_online_user'),
+        ("web", "0006_author_online_user"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='article',
-            name='likes',
+            model_name="article",
+            name="likes",
             field=models.IntegerField(null=True),
         ),
         migrations.CreateModel(
-            name='LikedArticle',
+            name="LikedArticle",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('article', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, related_name='articleTheUserLiked', to='web.article')),
-                ('liker', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, related_name='userWhoLikedTheArticle', to='web.user')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "article",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        related_name="articleTheUserLiked",
+                        to="web.article",
+                    ),
+                ),
+                (
+                    "liker",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        related_name="userWhoLikedTheArticle",
+                        to="web.user",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='ArticleComment',
+            name="ArticleComment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('article', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, related_name='articleTheUserCommentedOn', to='web.article')),
-                ('commenter', models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, related_name='commenter', to='web.user')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "article",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        related_name="articleTheUserCommentedOn",
+                        to="web.article",
+                    ),
+                ),
+                (
+                    "commenter",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.DO_NOTHING,
+                        related_name="commenter",
+                        to="web.user",
+                    ),
+                ),
             ],
         ),
     ]

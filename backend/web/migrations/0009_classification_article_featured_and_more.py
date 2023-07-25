@@ -5,27 +5,39 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('web', '0008_remove_article_likes'),
+        ("web", "0008_remove_article_likes"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Classification',
+            name="Classification",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.TextField()),
             ],
         ),
         migrations.AddField(
-            model_name='article',
-            name='featured',
+            model_name="article",
+            name="featured",
             field=models.BooleanField(null=True),
         ),
         migrations.AddField(
-            model_name='article',
-            name='article_classification',
-            field=models.ForeignKey(null=True, on_delete=django.db.models.deletion.DO_NOTHING, related_name='classificationOfArticle', to='web.classification'),
+            model_name="article",
+            name="article_classification",
+            field=models.ForeignKey(
+                null=True,
+                on_delete=django.db.models.deletion.DO_NOTHING,
+                related_name="classificationOfArticle",
+                to="web.classification",
+            ),
         ),
     ]

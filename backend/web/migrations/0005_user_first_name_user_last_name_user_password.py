@@ -4,25 +4,24 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('web', '0004_author_user'),
+        ("web", "0004_author_user"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='first_name',
+            model_name="user",
+            name="first_name",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='last_name',
+            model_name="user",
+            name="last_name",
             field=models.TextField(null=True),
         ),
         migrations.AddField(
-            model_name='user',
-            name='password',
+            model_name="user",
+            name="password",
             field=models.TextField(null=True),
         ),
     ]

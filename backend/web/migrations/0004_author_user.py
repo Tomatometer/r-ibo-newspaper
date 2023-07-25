@@ -4,26 +4,38 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('web', '0003_remove_article_image_article_description'),
+        ("web", "0003_remove_article_image_article_description"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Author',
+            name="Author",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField()),
-                ('bio', models.TextField()),
-                ('location', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.TextField()),
+                ("bio", models.TextField()),
+                ("location", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='User',
+            name="User",
             fields=[
-                ('email', models.EmailField(max_length=254, primary_key=True, serialize=False)),
-                ('is_subscribed', models.BigIntegerField(default=0)),
+                (
+                    "email",
+                    models.EmailField(
+                        max_length=254, primary_key=True, serialize=False
+                    ),
+                ),
+                ("is_subscribed", models.BigIntegerField(default=0)),
             ],
         ),
     ]

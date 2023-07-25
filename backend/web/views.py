@@ -22,7 +22,6 @@ def article_view(request: HttpRequest, articleID: int):
         )
 
 
-
 def search_result(request: HttpRequest, searchKey: str):
     if request.method == "POST":
         result = []
@@ -34,12 +33,16 @@ def search_result(request: HttpRequest, searchKey: str):
                 continue
         return JsonResponse({"articles": result}, status=200)
 
+
 def author_page(request: HttpRequest, AuthorName: str):
     if request.method == "POST":
         t = Article.objects.filter(author=AuthorName)
         author_info = Author.objects.get(name=AuthorName)
-        return JsonResponse({"authorInformation": author_info, "articles": t}, status=200)
-    
+        return JsonResponse(
+            {"authorInformation": author_info, "articles": t}, status=200
+        )
+
+
 def comments(request: HttpRequest, articleID: str):
     article = Article.objects.get(article_id=articleID)
     if request.method == "GET":
@@ -47,11 +50,16 @@ def comments(request: HttpRequest, articleID: str):
         return JsonResponse({"Comments": comments}, status=200)
     if request.method == "POST":
         try:
-            new_comment = ArticleComment(commenter=request.user, article=article, comment_content=json.loads(request.body)["comment_content"])
+            new_comment = ArticleComment(
+                commenter=request.user,
+                article=article,
+                comment_content=json.loads(request.body)["comment_content"],
+            )
             new_comment.save()
             return JsonResponse({"Message": "Comment Created Sucessfully"}, status=200)
         except Exception:
             return JsonResponse({"Message": "Error creating comment"}, status=400)
+
 
 def like(request: HttpRequest, articleID: str):
     us = request.user
@@ -63,4 +71,3 @@ def like(request: HttpRequest, articleID: str):
         except LikedArticle.DoesNotExist:
             like = LikedArticle(article=article, liker=us)
             like.save()
-
