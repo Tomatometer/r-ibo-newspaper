@@ -21,4 +21,3 @@ def exchange_code(code: str):
     r = requests.post("%s/oauth2/token" % API_ENDPOINT, data=data, headers=headers)
     r.raise_for_status()
     return r.json()
-
