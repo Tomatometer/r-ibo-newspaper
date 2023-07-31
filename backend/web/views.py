@@ -2,25 +2,29 @@ import json
 
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
-from pydantic import Json
+import json
 from web.models import *
-
+from uuid import *
+from django.core import serializers
 
 # Create your views here.
 def index(request: HttpRequest):
     return render(request, "web/new_layout.html")
 
 
-def article_view(request: HttpRequest, articleID: int):
+def article_view(request: HttpRequest, articleID: UUID):
     if request.method == "GET":
+        """
         return render(
             request,
             "web/new_layout.html",
             {
                 "site": Article.objects.get(article_id=articleID),
                 "posts": Article.objects.all()[0:5],
-            },
+            }
         )
+        """
+        return JsonResponse({"article": Article.objects.get(article_id=articleID).__dict__},status=200)
 
 
 def search_result(request: HttpRequest, searchKey: str):

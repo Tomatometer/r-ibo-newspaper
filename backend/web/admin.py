@@ -3,3 +3,4 @@ from web.models import *
 
 # Register your models here.
 admin.site.register(Article)  # type: ignore
+admin.site.register(Classification)
