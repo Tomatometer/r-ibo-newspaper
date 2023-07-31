@@ -1,11 +1,10 @@
 import json
+from uuid import *
 
+from django.core import serializers
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
-import json
 from web.models import *
-from uuid import *
-from django.core import serializers
 
 
 # Create your views here.
