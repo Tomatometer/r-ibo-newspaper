@@ -1,5 +1,5 @@
-from django.contrib import admin
 import web.models as wm
+from django.contrib import admin
 
 # Register your models here.
 admin.site.register(wm.Article)
