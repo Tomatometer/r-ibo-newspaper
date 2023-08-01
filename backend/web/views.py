@@ -1,7 +1,7 @@
 import json
 from uuid import *
 
-#from django.core import serializers
+# from django.core import serializers
 from django.http import HttpRequest, JsonResponse
 from django.shortcuts import render
 from web.models import *
