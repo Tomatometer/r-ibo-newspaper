@@ -78,4 +78,6 @@ def like(request: HttpRequest, articleID: str):
         except LikedArticle.DoesNotExist:
             like = LikedArticle(article=article, liker=us)
             like.save()
-        return JsonResponse({"Message": "like request recieved and processed"}, status=200)
+        return JsonResponse(
+            {"Message": "like request recieved and processed"}, status=200
+        )
