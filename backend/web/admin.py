@@ -1,11 +1,8 @@
 from django.contrib import admin
-from web.models import *
+import web.models as wm
 
 # Register your models here.
-<<<<<<< Updated upstream
-admin.site.register(Article)  # type: ignore
-admin.site.register(Classification)
-=======
-admin.site.register(Article)
-admin.site.register(Classification)
->>>>>>> Stashed changes
+admin.site.register(wm.Article)
+admin.site.register(wm.Classification)
+admin.site.register(wm.ArticleComment)
+admin.site.register(wm.Author)
