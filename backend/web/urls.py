@@ -1,5 +1,8 @@
 import web.views as wv
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 app_name = "web"
 urlpatterns = [
@@ -9,4 +12,9 @@ urlpatterns = [
     path("author/<str:AuthorName>", wv.author_page, name="author"),
     path("comment/<str:articleID>", wv.comments, name="comment"),
     path("like/<str:articleID>", wv.like, name="like"),
+    path("contact", wv.contact, name="contact"),
+    path("about", wv.about, name="about"),
+    path("posts", wv.posts, name="posts")
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
