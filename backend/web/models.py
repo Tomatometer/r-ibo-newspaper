@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.utils.text import slugify
+import uuid
 
 class User(models.Model):
     first_name = models.TextField(null=True)
@@ -14,11 +15,17 @@ class User(models.Model):
 
 class Classification(models.Model):
     name = models.TextField()
+    slug = models.SlugField(default="", null=False)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 # Create your models here.
 class Article(models.Model):
-    article_id = models.UUIDField()
+    article_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     title = models.TextField()
     author = models.TextField()
     date_published = models.DateTimeField()

@@ -4,7 +4,7 @@ from uuid import *
 # from django.core import serializers
 from django.http import HttpRequest, JsonResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from web.models import *
 
 
@@ -23,6 +23,24 @@ def contact(request: HttpRequest):
 		request,
 		"web/contact.html"
 	)
+    
+
+def category_detail(request: HttpRequest, slug):
+    category = get_object_or_404(Classification, slug=slug)
+    articles = Article.objects.filter(article_classification=category).order_by('-date_published')
+    paginator = Paginator(articles, 3)
+    page = request.GET.get('page')
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+        articles = paginator.page(1)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
+    context = {
+        'category': category,
+        'posts': articles,
+    }
+    return render(request, 'web/category_articles.html', context)
 
 
 def about(request: HttpRequest):
@@ -34,7 +52,6 @@ def about(request: HttpRequest):
 def posts(request):
     article_list = Article.objects.all().order_by('-date_published')
     paginator = Paginator(article_list, 3)
-
     page = request.GET.get('page')
     try:
         articles = paginator.page(page)

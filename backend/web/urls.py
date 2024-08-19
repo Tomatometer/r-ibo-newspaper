@@ -14,7 +14,8 @@ urlpatterns = [
     path("like/<str:articleID>", wv.like, name="like"),
     path("contact", wv.contact, name="contact"),
     path("about", wv.about, name="about"),
-    path("posts", wv.posts, name="posts")
+    path("posts", wv.posts, name="posts"),
+    path("category/<slug:slug>/", wv.category_detail, name='category_detail')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

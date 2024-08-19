@@ -48,8 +48,8 @@
                         Categories
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						{% for category in categories%}
-                        <a class="dropdown-item" href="/category1">{{ category.name }}</a>
+						{% for category in categories %}
+						<a class="dropdown-item" href="{% url 'web:category_detail' category.slug %}">{{ category.name }}</a>
 						{% endfor %}
                     </div>
 				</li>
