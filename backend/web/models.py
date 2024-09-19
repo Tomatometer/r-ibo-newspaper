@@ -26,7 +26,7 @@ class Classification(models.Model):
 class Issue(models.Model):
     name = models.TextField()
     slug = models.SlugField(default="", null=False)
-    cover = models.ImageField(null=True, upload_to='images/articleCovers/')
+    cover = models.ImageField(null=True, upload_to='images/issueCovers/')
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -69,7 +69,6 @@ class Author(models.Model):
         User, on_delete=models.DO_NOTHING, related_name="authorUser", null=True
     )
 
-
 class LikedArticle(models.Model):
     liker = models.ForeignKey(
         User, on_delete=models.DO_NOTHING, related_name="userWhoLikedTheArticle"
@@ -88,5 +87,3 @@ class ArticleComment(models.Model):
     )
     date_commented = models.DateTimeField(auto_created=True, null=True)
     comment_content = models.TextField(null=True)
-
-# TODO create a model for an ISSUE for each article

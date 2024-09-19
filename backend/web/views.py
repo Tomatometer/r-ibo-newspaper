@@ -41,6 +41,24 @@ def category_detail(request: HttpRequest, slug):
     }
     return render(request, 'web/category_articles.html', context)
 
+def issue_detail(request: HttpRequest, slug):
+    issue = get_object_or_404(Issue, slug=slug)
+    articles = Article.objects.filter(issue=issue).order_by("-date_published")
+    paginator = Paginator(articles, 3)
+    page = request.GET.get('page')
+    try:
+        articles = paginator.page(page)
+    except PageNotAnInteger:
+        articles = paginator.page(1)
+    except EmptyPage:
+        articles = paginator.page(paginator.num_pages)
+    context ={
+        'issue': issue,
+        'posts': articles,
+    }
+    return render(request, 'web/issue_articles.html', context)
+
+
 
 def about(request: HttpRequest):
     return render(

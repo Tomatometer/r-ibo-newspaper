@@ -1,0 +1,61 @@
+{% extends 'web/layout.html' %}
+{% load static %}
+{% load read_time %}
+
+{% block body %}
+    <body>
+        <!-- Page Header-->
+		<header class="masthead" style="background-image: url('{{ issue.cover.url }}'); background-size: contain; background-repeat:no-repeat;">
+			<div class="overlay"></div> <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-md-10 mx-auto">
+				<div class="page-heading">
+					<h1>{{ issue.name }}</h1>
+				</div>
+				</div>
+			</div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+					{% for post in posts %}
+
+					<article class="post-preview">
+					  <a href="{% url 'web:article' post.article_id %}">
+						<h2 class="post-title">{{ post.title }}</h2>
+						{% if post.subtitle %}
+						  <h3 class="post-subtitle">{{ post.description }}</h3>
+						{% endif %}
+					  </a>
+					  <p class="post-meta">Posted by
+						{{ post.author }}
+						on
+						{{ post.date_published }} &middot; {{ post.textual_content|read_time }} min read
+					  </p>
+					</article> 
+				  <hr> 
+				  {% endfor %}
+                </div>
+            </div>
+			<div style="text-align: center; margin: 20px 0;">
+				<div style="display: inline-block; text-align: center;">
+					<span style="display: inline-block; margin: 0 5px;">
+						{% if posts.has_previous %}
+							<a href="?page=1" style="text-decoration: none; color: #007bff; margin: 0 5px;">&laquo; first</a>
+							<a href="?page={{ posts.previous_page_number }}" style="text-decoration: none; color: #007bff; margin: 0 5px;">previous</a>
+						{% endif %}
+			
+						<span style="font-weight: bold; color: #333; margin: 0 5px;">
+							Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+						</span>
+			
+						{% if posts.has_next %}
+							<a href="?page={{ posts.next_page_number }}" style="text-decoration: none; color: #007bff; margin: 0 5px;">next</a>
+							<a href="?page={{ posts.paginator.num_pages }}" style="text-decoration: none; color: #007bff; margin: 0 5px;">last &raquo;</a>
+						{% endif %}
+					</span>
+				</div>
+			</div>
+        </div>
+{% endblock %}

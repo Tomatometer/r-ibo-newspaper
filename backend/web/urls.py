@@ -15,7 +15,8 @@ urlpatterns = [
     path("contact", wv.contact, name="contact"),
     path("about", wv.about, name="about"),
     path("posts", wv.posts, name="posts"),
-    path("category/<slug:slug>/", wv.category_detail, name='category_detail')
+    path("category/<slug:slug>/", wv.category_detail, name='category_detail'),
+    path("issue/<slug:slug>/", wv.issue_detail, name='issue_detail')
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

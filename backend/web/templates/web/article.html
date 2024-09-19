@@ -3,7 +3,7 @@
 {% block body %} 
 <!-- Page Header -->
 {% if page.image %}
-<header class="masthead" style="background-image: url('{{ page.image.url }}')">
+<header class="masthead" style="background-image: url('{{ page.image.url }}'); background-size: contain; background-repeat:no-repeat;">
   {% else %}
   <header class="masthead">
     {% endif %}
@@ -30,7 +30,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
-        {{ page.textual_content }}
+        {{ page.textual_content|safe|linebreaks}}
 
         <hr>
 

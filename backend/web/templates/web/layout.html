@@ -53,6 +53,16 @@
 						{% endfor %}
                     </div>
 				</li>
+				<li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Issues
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						{% for issue in issues %}
+						<a class="dropdown-item" href="{% url 'web:issue_detail' issue.slug %}">{{ issue.name }}</a>
+						{% endfor %}
+                    </div>
+				</li>
 				<li class="nav-item">
 				<a class="nav-link" href="/contact">Contact</a>
 				</li>
